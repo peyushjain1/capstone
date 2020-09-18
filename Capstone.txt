@@ -1,28 +1,3 @@
-Role ARN : arn:aws:iam::741383253344:role/eksrole
-
-udacityeksvpc
-SecurityGroups	sg-05364e4f7a55fc9bd	 
-SubnetIds	subnet-0f063983b31eca17c 
-		subnet-0762215e60afac04c
-		subnet-001059224d1ce2c77	 
-VpcId		vpc-04b768667d593bcc4	 
-
-
-aws eks --region us-west-2 create-cluster --name peyushcluster --role-arn arn:aws:iam::741383253344:role/eksrole --resources-vpc-config subnetIds=subnet-0f063983b31eca17c,subnet-0762215e60afac04c,subnet-001059224d1ce2c77,securityGroupIds=sg-05364e4f7a55fc9bd
-
-aws eks --region us-west-2 update-kubeconfig --name peyushcluster
-
-Added new context arn:aws:eks:us-west-2:741383253344:cluster/peyushcluster to C:\Users\91965\.kube\config
-
-ami ami-05c646a801901b785
-
-curl -o aws-auth-cm.yaml https://amazon-eks.s3.us-west-2.amazonaws.com/cloudformation/2020-08-12/aws-auth-cm.yaml
-
-
-
-
-
-
 1) Install aws cli 
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 sudo apt-get update 
@@ -72,18 +47,13 @@ eksctl create cluster --name peyush-cluster --version 1.17 --region us-west-2 --
 
 eksctl create cluster --name peyush-cluster --version 1.17 --region us-west-2 --nodegroup-name peyush-nodes --node-type t3.small --nodes-min 1 --nodes-max 1 --ssh-access --ssh-public-key peyushcluster --managed
 
-11) Delete a cluster 
+11) Create deployment and service yaml 
+
+12) apply deployment and service yaml 
+
+13) Delete a cluster 
 eksctl delete cluster -n peyush-cluster -w
-
-12) Install helm
-
-curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
-sudo apt-get install apt-transport-https --yes
-echo "deb https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
-sudo apt-get update
-sudo apt-get install helm
-
- kubectl run --generator=run-pod/v1 --image=741383253344.dkr.ecr.us-west-2.amazonaws.com/peyush/my-app:latest my-app
- kubectl port-forward pod/my-app 8000:80
+kubectl run --generator=run-pod/v1 --image=741383253344.dkr.ecr.us-west-2.amazonaws.com/peyush/my-app:latest my-app
+kubectl port-forward pod/my-app 8000:80
 
 
