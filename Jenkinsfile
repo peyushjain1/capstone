@@ -6,10 +6,5 @@ pipeline {
           sh 'tidy -q -e *.html'
         }
       }
-      stage('Build Docker image') {
-        steps {
-          sh 'docker build -t my-app .'
-        }
-      }
     }
   }  
