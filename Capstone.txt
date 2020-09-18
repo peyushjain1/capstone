@@ -19,10 +19,6 @@ ami ami-05c646a801901b785
 curl -o aws-auth-cm.yaml https://amazon-eks.s3.us-west-2.amazonaws.com/cloudformation/2020-08-12/aws-auth-cm.yaml
 
 
-Access Key ID:
-AKIAIR36ZJBXF27BGPNA
-Secret Access Key:
-MFJwzudKt9l3EvfuTdHye71TPvZAn0B4WKINkRw
 
 
 
@@ -35,11 +31,6 @@ unzip awscliv2.zip
 sudo ./aws/install
 
 2) Configure aws cli 
-Jenkins 
-Access key ID
-Secret access key
-AKIA2ZHPCVVQE7LTY2BZ
-8xi6LAiPBHe07Qf26TbFhmlAMOSakj0l2LiYbRLT
 
 3) Install docker 
 sudo apt-get install docker.io
