@@ -20,6 +20,14 @@ pipeline {
             sh 'docker push 741383253344.dkr.ecr.us-west-2.amazonaws.com/peyush/my-app:latest'
            }
         }
-      } 
+      }
+      stage('Push image') {
+        steps {
+          withAWS(region:'us-west-2',credentials:'jenkins') {
+            sh 'kubectl apply -f deployment.yaml'  
+            sh 'kubectl apply -f services.yaml'
+           }
+        }
+      }       
   }
 }  

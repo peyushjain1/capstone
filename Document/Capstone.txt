@@ -50,6 +50,8 @@ eksctl create cluster --name peyush-cluster --version 1.17 --region us-west-2 --
 11) Create deployment and service yaml 
 
 12) apply deployment and service yaml 
+kubectl apply -f deployment.yaml
+kubectl apply -f services.yaml
 
 13) Delete a cluster 
 eksctl delete cluster -n peyush-cluster -w
