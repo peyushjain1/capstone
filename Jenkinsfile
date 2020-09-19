@@ -11,5 +11,12 @@ pipeline {
           sh 'docker build -t my-app .'
       }
     }
+      stage('Push image') {
+        steps {
+          withAWS(region:'us-west-2',credentials:'jenkins') {
+            sh 'aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 741383253344.dkr.ecr.us-west-2.amazonaws.com'  
+           }
+        }
+      } 
   }
 }  

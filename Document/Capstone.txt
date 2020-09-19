@@ -56,7 +56,8 @@ eksctl delete cluster -n peyush-cluster -w
 kubectl run --generator=run-pod/v1 --image=741383253344.dkr.ecr.us-west-2.amazonaws.com/peyush/my-app:latest my-app
 kubectl port-forward pod/my-app 8000:80
 
-14) sudo groupadd docker
+14) To deal with jenkins access issues with docker use below commands
+sudo groupadd docker
 sudo usermod -aG docker jenkins
 reboot 
 
