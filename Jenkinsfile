@@ -21,7 +21,7 @@ pipeline {
            }
         }
       }
-      stage('Push image') {
+      stage('Deploy containers') {
         steps {
           withAWS(region:'us-west-2',credentials:'jenkins') {
             sh 'kubectl apply -f deployment.yaml'  
