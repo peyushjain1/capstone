@@ -21,6 +21,13 @@ pipeline {
            }
         }
       }
+      stage('Push image') {
+        steps {
+          withAWS(region:'us-west-2',credentials:'jenkins') {
+            sh 'aws eks --region us-west-2 update-kubeconfig --name peyush-cluster'  
+           }
+        }
+      }
       stage('Deploy containers') {
         steps {
           withAWS(region:'us-west-2',credentials:'jenkins') {
